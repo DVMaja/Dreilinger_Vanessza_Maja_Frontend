@@ -7,10 +7,18 @@ import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 
+
 const baseURL = "http://localhost:8000/";
 const adatok = await axios.get(baseURL + "api/tema");
+
 console.log(adatok.data);
 function App() {
+  function valaszt(e) {
+    e.preventDefault();
+    console.log("Működik");
+    //const adatok = await axios.get(baseURL + "api/szavak/{$___}");
+  }
+
   return (
     <div className="App">
       <header className="App-header">Szótár</header>
@@ -31,7 +39,9 @@ function App() {
         <Form.Select aria-label="Default select example">
           <option>Témakörök</option>
           {adatok.data.map((item, index) => (
-            <option value="1">{item.temanev}</option>
+            <option onClick={valaszt} value="index" key={index}>
+              {item.temanev}
+            </option>
           ))}
         </Form.Select>
         <Tablazat />

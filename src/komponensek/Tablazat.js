@@ -4,22 +4,20 @@ const baseURL = "http://localhost:8000/";
 const adatok = await axios.get(baseURL + "api/szavak");
 
 export default function Tablazat() {
-  console.log(adatok.data);
+  //console.log(adatok.data);
 
   
-    /* if (valasz.value == item.magyar) {
-      <h2>Jó</h2>;
-    } else {
-      <h2>Rossz</h2>;
-    } */
-  
-    
+  const katt = (e) => {
+    //console.log(e)
+    console.log("hello");
+  };
+
   if (!adatok) {
     <div>Töltés</div>;
   } else {
     return (
-      <div className="d-flex align-items-center justify-content-center">
-        <table className="table">
+      <div className="d-flex align-items-center justify-content-center table-responsive-sm table-responsive-md">
+        <table className="table ">
           <thead>
             <tr>
               <th>Angol</th>
